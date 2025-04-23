@@ -122,6 +122,7 @@ function* unparseModifier<T extends ModificationInstance>(
 ) {
   yield writeKleiString(instance.name);
 
+  // @ts-ignore
   const token = yield writeDataLengthBegin();
   yield* templateUnparser.unparseByTemplate(
     modifierInstanceType,

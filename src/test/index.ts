@@ -101,7 +101,7 @@ function loadFile(fileName: string): SaveGame {
 
   try {
     return parseSaveGame(fileData.buffer, interceptor);
-  } catch (e) {
+  } catch (e : any) {
     console.error(`Load error at ${currentTagPath.join(" => ")}`);
     e.tagPath = [...currentTagPath];
     throw e;
@@ -122,7 +122,7 @@ function saveFile(fileName: string, save: SaveGame) {
   try {
     const fileData = writeSaveGame(save, interceptor);
     writeFileSync(`./test-data/${fileName}.sav`, new Uint8Array(fileData));
-  } catch (e) {
+  } catch (e : any) {
     console.error(`Save error at ${currentTagPath.join(" => ")}`);
     e.tagPath = [...currentTagPath];
     throw e;

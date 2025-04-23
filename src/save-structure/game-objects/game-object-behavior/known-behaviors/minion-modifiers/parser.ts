@@ -123,6 +123,7 @@ function* unparseModifier<T extends MinionModificationInstance>(
 ) {
   yield writeKleiString(instance.name);
 
+  // @ts-ignore
   const token = yield writeDataLengthBegin();
   yield* templateUnparser.unparseByTemplate(
     modifierInstanceType,

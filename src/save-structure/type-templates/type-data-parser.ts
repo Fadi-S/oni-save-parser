@@ -59,12 +59,14 @@ function* parseArrayLike(info: TypeInfo, templates: TypeTemplates) {
   yield readInt32();
 
   // element-length
+  // @ts-ignore
   const length = yield readInt32();
   if (length === -1) {
     return null;
   } else if (length >= 0) {
     const typeCode = getTypeCode(elementType.info);
     if (typeCode === SerializationTypeCode.Byte) {
+      // @ts-ignore
       const data = yield readBytes(length);
       return new Uint8Array(data);
     } else if (isValueType(elementType.info)) {
