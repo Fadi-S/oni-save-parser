@@ -11,6 +11,7 @@ import { isMetaInstruction } from "../types";
 // Typescript currently does not support specifying the return value of an iterator.
 //  We could use IterableIterator<ReadInstructions | T>, but that throws errors
 //  when the parser delegates to sub-generators.
+// @ts-ignore
 export type ParseIterator<T> = Generator<any, T, any>;
 export type ParseInterceptor = (value: any) => any;
 

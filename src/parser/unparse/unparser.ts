@@ -9,6 +9,7 @@ import {
 import { ParseError } from "../errors";
 import { isMetaInstruction } from "../types";
 
+// @ts-ignore
 export type UnparseIterator = Generator<any, any, any>;
 export type UnparseInterceptor = (value: any) => any;
 
